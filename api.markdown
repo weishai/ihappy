@@ -1,14 +1,14 @@
 iHappy Document
 ===============
 # html
-  artTemplete
+  - artTemplete
 
 # js
-  seajs
+  - seajs
 
 # css
-  css3
-  responsive
+  - css3
+  - responsive
 
 # server
-  nodejs
+  - nodejs
