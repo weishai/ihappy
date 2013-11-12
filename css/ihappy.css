@@ -163,61 +163,6 @@ body{
   opacity: 1;
 }
 
-/* postlist */
-.postlist-wrap{
-  position: relative;
-  margin: 0 11.11%;}
-.postlist{
-  width: 85%;
-  margin: 0 0 0 auto;}
-.postlist .post{
-  width: 100%;
-  margin-top: 24px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-sizing: border-box;
-  padding: 0 20px;
-  -webkit-transition: .33s ease-out;
-  -moz-transition: .33s ease-out;
-  -ms-transition: .33s ease-out;
-  transition: .33s ease-out;
-  position: relative;}
-.postlist .post-link{
-  text-decoration: none;}
-.postlist .post-title{
-  padding: 20px 0 40px;
-  font-size: 24px;
-  color: #686868;}
-.postlist .post-meta{
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  text-align: right;
-  z-index: -1;
-  -webkit-transition: .33s ease-out;
-  -moz-transition: .33s ease-out;
-  -ms-transition: .33s ease-out;
-  transition: .33s ease-out;
-  opacity: 0;}
-.postlist .post-meta .post-time{
-  font-size: 18px;
-  font-weight: bold;
-  padding: 20% 0 8%;
-  color: #555;}
-.postlist .post-meta .post-author{
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;}
-
-.postlist .post:hover{
-  margin-left: -12.5%;
-}
-.postlist .post:hover .post-meta{
-  margin-right: -11%;
-  opacity: 1;}
-
-
 
 
 
