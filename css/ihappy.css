@@ -65,28 +65,29 @@ table {
 body{
   font-family: "Helvetica Neue", "Microsoft Yahei", "微软雅黑", Tahoma, Arial, sans-serif;
   color: #333;
-  background-color: #fdbb30;
+}
+
+a{
+  text-decoration: none;
+  outline: none;
 }
 
 /* App styles
 ----------------------------------------------------------------*/
-.wrap{}
-
 /* header */
 .header{
-  position: relative;
-  margin: 0 11.11%;
-  padding-top: 40px;}
-.header .header-inner{
-  width: 85%;
-  background-color: #000;
-  border-bottom: 24px #555 solid;
-  margin: 80px 0 0 auto;
-  position: relative;}
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #F2F2F2;}
+.header .header-inner{}
 .header .logo{
   position: absolute;
-  left: -12.5%;
-  bottom: -24px;}
+  top: 50%;
+  left: 18px;
+  margin: -54px 0 0 0;
+  -webkit-transform: scale(0.6);}
 .logo-my{
     position:relative;
     width:96px;
@@ -135,16 +136,16 @@ body{
     }
 .header .navlist{
   position: absolute;
-  width: 100%;
+  width: 50%;
   font-size: 24px;
   -webkit-transition: .33s ease-out;
   -moz-transition: .33s ease-out;
   -ms-transition: 1.33s ease-out;
   transition: .33s ease-out;
-  text-align: left;
-  bottom: -30px;
-  margin-bottom: 0;
-  opacity: 0;}
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -25%;}
 .header .navlist > li{
   width: 16.6%;
   float: left;
@@ -157,21 +158,43 @@ body{
   font-weight: bold;
   color: #555;}
 .header .navlist > li a:hover{
-  color: #fff;}
+  color: #e1704b;}
 .header:hover .navlist{
   margin-bottom: 36px;
   opacity: 1;
 }
+.header .btn-create{
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  margin-top: -20px;}
+.header .btn-create .icon-plus{
+  margin-right: 16px;}
+
+/* wrap */
+.wrap{}
+
+/* footer */
+.footer{}
 
 
-
-
-
-
-
-
-/* App styles
+/* Component styles
 ----------------------------------------------------------------*/
+.btn{
+  background-color: #e1704b;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -moz-transition: background-color 0.2s ease-in-out;
+  -o-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 1.125em;}
+.btn:hover{
+  background-color: #E79073;}
 
 /* App styles
 ----------------------------------------------------------------*/
