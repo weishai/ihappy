@@ -167,7 +167,8 @@ a{
   position: absolute;
   top: 50%;
   right: 18px;
-  margin-top: -20px;}
+  margin-top: -20px;
+  font-size: 1em;}
 .header .btn-create .icon-plus{
   margin-right: 16px;}
 
@@ -192,7 +193,7 @@ a{
   color: #fff;
   padding: 10px 24px;
   text-align: center;
-  font-size: 1.125em;}
+  font-size: 1em;}
 .btn:hover{
   background-color: #E79073;}
 
