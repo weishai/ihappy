@@ -204,7 +204,16 @@ input:focus::-webkit-input-placeholder { color:#eee; }
   padding: 0;
   font-size: 24px;}
 .addform-body{}
-.addform-footer{}
+.addform .textarea-wrap{
+  margin-top: 4%;
+  border: 1px solid #eee;
+  padding: 16px;
+  height: 80%;}
+.addform-footer{
+  width: 80%;
+  max-width: 960px;
+  margin: 0 auto;
+  height: 10%;}
 
 /* wrap */
 .wrap{}
