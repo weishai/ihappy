@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="app description" />
+  <title>iHappy</title>
+  <link rel="stylesheet" href="css/font/font.css" />
+  <link rel="stylesheet" href="css/ihappy.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-my">
+          <div class="m-part">
+            <div class="m-part-mid"></div>
+          </div>
+          <div class="y-part">
+            <div class="y-part-top"></div>
+            <div class="y-part-bot"><div class="y-part-tail"></div></div>
+          </div>
+        </div>
+      </div>
+      <nav class="nav">
+        <ul class="navlist">
+          <li><a href="">iHappy</a></li>
+          <li><a href="">code</a></li>
+          <li><a href="">tool</a></li>
+        </ul>
+      </nav>
+      <a href="" class="btn btn-create"><i class="icon-plus"></i>Add</a>
+      <div class="create-box">
+        <form class="addform">
+          <div class="addform-header">
+            <div class="input-wrap">
+              <input type="text" class="input-text" placeholder="Title about your code.." />
+            </div>
+          </div>
+          <div class="addform-body">
+            <div class="tab-box">
+              <div class="tab-nav">
+                <div class="textarea-logo"><i class="icon-code"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="addform-footer"></div>
+        </form>
+      </div>
+    </div>
+  </header>
+  <div class="wrap"></div>
+  <footer class="footer"></footer>
+  <script src="js/sea-modules/seajs/sea.js"></script>
+  <script src="js/ihappy.js"></script>
+</body>
 </html>

@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "ihappy",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "express": "3.4.3",
     "ejs": "*",
     "mongodb": "*",
-    "connect-mongo": "*"
+    "connect-mongo": "*",
+    "jquery-file-upload-middleware": "*"
   }
 }
