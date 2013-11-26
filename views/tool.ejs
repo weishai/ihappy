@@ -51,7 +51,31 @@
   <div class="wrap">
     <div class="toolapp">
       <div class="csslift">
-        <div id="fileZone" class="filezone"></div>
+        <div id="fileZone" class="filezone">
+          <div id="fileCheck" class="filecheck">
+            <div id="htmlListBox" class="listbox">
+              <div class="listbox-title">HTML</div>
+              <div class="listbox-main">
+                <!-- <ul class="filelist">
+                  <li>fwie.html</li>
+                  <li>fwie.html</li>
+                  <li>fwie.html</li>
+                </ul> -->
+              </div>
+            </div>
+            <div id="cssListBox" class="listbox">
+              <div class="listbox-title">CSS</div>
+              <div class="listbox-main">
+                <!-- <ul class="filelist">
+                  <li>swe.css</li>
+                  <li>swe.css</li>
+                  <li>swe.css</li>
+                </ul> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn btn-csslift-go">CSS Lift</div>
       </div>
     </div>
   </div>
@@ -65,7 +89,26 @@
   <script>
   $('#fileZone').fileupload({
     dropZone: $('#fileZone'),
-    url: '/uploadfile'
+    url: '/uploadfile',
+    dataType: 'json',
+    singleFileUploads: false,
+    autoUpload: false,
+    paramName: 'csslift'
+  })
+  .bind('fileuploadadd', function (i, data) {
+    var htmlListTmp = cssListTmp = ''
+      , cssFileReg = /.*\.css$/
+      , htmlFileReg = /.*\.html$/
+    $.each(data.files, function(index, file) {
+      if(htmlFileReg.test(file.name)){
+        htmlListTmp += '<li>' + file.name + '</li>'
+      }else if(cssFileReg.test(file.name)){
+        cssListTmp += '<li>' + file.name + '</li>'
+      }
+    });
+    $('#fileCheck').addClass('filecheck-active')
+    $('#htmlListBox .listbox-main').html('<ul class="filelist">'+htmlListTmp+'</ul>')
+    $('#cssListBox .listbox-main').html('<ul class="filelist">'+cssListTmp+'</ul>')
   });
   </script>
 </body>
