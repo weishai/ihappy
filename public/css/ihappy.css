@@ -76,6 +76,10 @@ a{
   outline: none;
 }
 
+input,textarea{
+  font-family: inherit;
+}
+
 input:-moz-placeholder {
   color: #e0e0e0;
 }
@@ -104,6 +108,7 @@ input:focus::-webkit-input-placeholder {
   left: 18px;
   margin: -54px 0 0 0;
   -webkit-transform: scale(0.6);
+  z-index: 8000;
 }
 .logo-my{
   position:relative;
@@ -183,10 +188,10 @@ input:focus::-webkit-input-placeholder {
 .header .navlist > .active a{
   color: #e1704b;
 }
-.header:hover .navlist{
-  margin-bottom: 36px;
-  opacity: 1;
+.header .nav-hide .navlist{
+  opacity: 0;
 }
+
 .header .btn-create{
   position: absolute;
   top: 50%;
@@ -220,6 +225,12 @@ input:focus::-webkit-input-placeholder {
 }
 .addform-header{
   height: 100px;
+  background-color: #FFF;
+  -webkit-transition: .5s ease-out;
+  -moz-transition: .5s ease-out;
+  -ms-transition: .5s ease-out;
+  transition: .5s ease-out;
+  opacity: 0;
 }
 .addform-header .input-wrap{
   width: 80%;
@@ -246,6 +257,13 @@ input:focus::-webkit-input-placeholder {
   max-width: 960px;
   margin: 0 auto;
   height: 10%;
+}
+
+.header .create-box-active{
+  /*display: block;*/
+}
+.header .create-box-active .addform-header{
+  opacity: 1;
 }
 
 /* wrap */
