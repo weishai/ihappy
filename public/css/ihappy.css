@@ -226,12 +226,14 @@ input:focus::-webkit-input-placeholder {
 .addform-header{
   height: 100px;
   background-color: #FFF;
-  -webkit-transition: .5s ease-out;
-  -moz-transition: .5s ease-out;
-  -ms-transition: .5s ease-out;
-  transition: .5s ease-out;
-  opacity: 0;
+  -webkit-transition:all .5s ease-out;
+  -moz-transition:all .5s ease-out;
+  -ms-transition:all .5s ease-out;
+  transition:all .5s ease-out;
 }
+  .header .addform-header-active{
+    opacity: 1;
+  }
 .addform-header .input-wrap{
   width: 80%;
   max-width: 960px;
@@ -260,9 +262,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .header .create-box-active{
-  /*display: block;*/
-}
-.header .create-box-active .addform-header{
+  display: block;
   opacity: 1;
 }
 

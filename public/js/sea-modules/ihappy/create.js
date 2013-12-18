@@ -1,5 +1,6 @@
 define(function(require, exports, module) {
   console.log('create.js module start')
+  require('ihappy/transition-support')
   var $ = require('jquery')
 
   var createBox = function (element, options) {
@@ -8,10 +9,17 @@ define(function(require, exports, module) {
     this.bindEvent()
   }
   createBox.prototype.open = function () {
+    var self = this
     $('#topNav').addClass('nav-hide')
-    this.$element.show(function () {
-      $(this).addClass('create-box-active')
-    })
+    this.$element.show(330, function() {
+      $(this).find('.addform-header')
+        .addClass('addform-header-active')
+        // .one($.support.transition.end, function () {
+        //   $(this).find('input').focus();
+        // })
+      $(this).find('input').focus();
+      console.log($.support.transition.end);
+    });
   },
   createBox.prototype.close =function () {
 
