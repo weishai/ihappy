@@ -37,9 +37,20 @@
             </div>
           </div>
           <div class="addform-body">
-            <div class="tab-box">
-              <div class="tab-nav">
-                <div class="textarea-logo"><i class="icon-code"></i></div>
+            <div class="addform-body-inner">
+              <div class="tab-box">
+                <div class="tab-nav">
+                  <div class="textarea-logo"><i class="icon-code"></i></div>
+                </div>
+                <div class="tab-content">
+                  <div id="editor" style="height:300px;">Anything</div>
+                  <script src="http://ace.c9.io/build/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+                  <script>
+                      var editor = ace.edit("editor");
+                      // editor.setTheme("ace/theme/monokai");
+                      // editor.getSession().setMode("ace/mode/javascript");
+                  </script>
+                </div>
               </div>
             </div>
           </div>
