@@ -90,6 +90,57 @@ input:focus::-webkit-input-placeholder {
   color:#eee;
 }
 
+/* Component styles
+----------------------------------------------------------------*/
+/* button */
+.btn{
+  background-color: #e1704b;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -moz-transition: background-color 0.2s ease-in-out;
+  -o-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 1em;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: #E79073;
+}
+
+/* iTab */
+.tab-box{}
+.tab-box .tab-nav{}
+  .tab-box .tab-nav:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    *zoom: 1;
+  }
+.tab-box .tab-nav > li{}
+.tab-box .tab-nav .nav-btn{
+  display: inline-block;
+}
+  .tab-box .tab-nav .btn-active{
+
+  }
+.tab-box .tab-content{
+
+}
+.tab-box .tab-content .tab-item{
+  display: none;
+}
+  .tab-box .tab-content > .item-active{
+    display: block;
+  }
+
 /* App styles
 ----------------------------------------------------------------*/
 /* header */
@@ -242,22 +293,28 @@ input:focus::-webkit-input-placeholder {
 .addform-header .input-wrap .input-text{
   height: 100%;
   width: 100%;
-  padding: 0;
+  padding: 0 12px;
   font-size: 24px;
+  color: #888;
 }
 .addform-body{}
 .addform-body-inner{
   width: 80%;
   margin: 0 auto;
-  max-width: 960px;}
+  max-width: 960px;
+}
 .addform .textarea-wrap{
   margin-top: 4%;
   border: 1px solid #eee;
   padding: 16px;
   height: 80%;
 }
-.addform .tab-box{}
-
+.addform .tab-nav .nav-btn{
+  padding: 8px 12px;
+  font-size: 18px;
+  color: #cdcdcd;}
+.addform .tab-nav .nav-btn > i{
+  margin-right: 4px;}
 .addform-footer{
   width: 80%;
   max-width: 960px;
@@ -340,32 +397,6 @@ input:focus::-webkit-input-placeholder {
   top: 26px;
   right: 30px;
 }
-
-/* Component styles
-----------------------------------------------------------------*/
-/* button */
-.btn{
-  background-color: #e1704b;
-  -webkit-transition: background-color 0.2s ease-in-out;
-  -moz-transition: background-color 0.2s ease-in-out;
-  -o-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  color: #fff;
-  padding: 10px 24px;
-  text-align: center;
-  font-size: 1em;
-  cursor: pointer;
-}
-.btn:hover{
-  background-color: #E79073;
-}
-
-/* tab */
-.tab-box{}
-.tab-box .tab-nav{}
 
 /* App styles
 ----------------------------------------------------------------*/
