@@ -1,9 +1,5 @@
 define(function(require, exports, module) {
-  console.log('create.js module start')
-  require('ihappy/transition-support')
-  require('plugins/codemirror/codemirror.js')
-  require('pluginsCss/codemirror/codemirror.css')
-  require('pluginsCss/codemirror/writingTheme.css')
+  console.log('addformEditor.js module start')
   var $ = require('jquery')
 
   var createBox = function (element, options) {
@@ -38,8 +34,4 @@ define(function(require, exports, module) {
   var ihappyCreate = new createBox($('#createBox'), {
     btnCreate: $('#btnCreate')
   })
-
-  var addformEditor = CodeMirror($('#addformEditor')[0])
-  console.log(addformEditor)
-
 })

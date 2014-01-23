@@ -321,6 +321,10 @@ input:focus::-webkit-input-placeholder {
   margin: 0 auto;
   height: 10%;
 }
+.addform .editor{
+  width: 680px;
+  padding: 0 12px;
+}
 
 .header .create-box-active{
   display: block;

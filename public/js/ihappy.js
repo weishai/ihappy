@@ -1,10 +1,10 @@
 seajs.config({
-  base: "./js/sea-modules",
   alias: {
     "jquery": "jquery/jquery.js"
   },
   paths:{
-    "ihappy":"ihappy"
+    "ihappy":"ihappy",
+    "pluginsCss":"../../../css/plugins"
   }
 })
 
