@@ -39,7 +39,9 @@ define(function(require, exports, module) {
     btnCreate: $('#btnCreate')
   })
 
-  var addformEditor = CodeMirror($('#addformEditor')[0])
+  var addformEditor = CodeMirror($('#addformEditor')[0],{
+    lineWrapping: true
+  })
   console.log(addformEditor)
 
 })
