@@ -221,7 +221,6 @@ input:focus::-webkit-input-placeholder {
   margin: -15px 0 0 -25%;
 }
 .header .navlist > li{
-  width: 20%;
   float: left;
   list-style: none;
   box-sizing: border-box;
@@ -280,10 +279,38 @@ input:focus::-webkit-input-placeholder {
   -moz-transition:all .5s ease-out;
   -ms-transition:all .5s ease-out;
   transition:all .5s ease-out;
+  position:relative;
 }
   .header .addform-header-active{
-  opacity: 1;
+    opacity: 1;
+  }
+.addform-header .btn-close{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 10%;
+  top: 0;
+  text-align: center;
+  cursor: pointer;
+  display: table;
+  color: #ddd;
+  opacity: 0;
+  -webkit-transition:opacity .33s ease-out .8s;
+  -moz-transition:opacity .33s ease-out .8s;
+  -ms-transition:opacity .33s ease-out .8s;
+  transition:opacity .33s ease-out .8s;
 }
+  .addform-header .btn-close > i{
+    font-size: 1.5em;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .addform-header .btn-close:hover{
+  color: #e1704b;}
+  .header .btn-close-active{
+    opacity: 1;
+  }
+
 .addform-header .input-wrap{
   width: 80%;
   max-width: 960px;
@@ -324,6 +351,7 @@ input:focus::-webkit-input-placeholder {
 .addform .editor{
   width: 680px;
   padding: 0 12px;
+  height: 600px;
 }
 
 .header .create-box-active{

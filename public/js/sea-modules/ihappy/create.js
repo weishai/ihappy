@@ -1,6 +1,5 @@
 define(function(require, exports, module) {
   console.log('create.js module start')
-  require('ihappy/transition-support')
   require('plugins/codemirror/codemirror.js')
   require('pluginsCss/codemirror/codemirror.css')
   require('pluginsCss/codemirror/writingTheme.css')
@@ -9,7 +8,11 @@ define(function(require, exports, module) {
   var createBox = function (element, options) {
     this.$element = element
     this.$btnCreate = options.btnCreate
+    this.$btnClose = options.btnClose || this.$element.find('.addform-header .btn-close')
     this.bindEvent()
+    this.addformEditor = CodeMirror($('#addformEditor')[0],{
+      lineWrapping: true
+    })
   }
   createBox.prototype.open = function () {
     var self = this
@@ -17,20 +20,28 @@ define(function(require, exports, module) {
     this.$element.show(330, function() {
       $(this).find('.addform-header')
         .addClass('addform-header-active')
-        // .one($.support.transition.end, function () {
-        //   $(this).find('input').focus();
-        // })
+        .find('.btn-close')
+        .addClass('btn-close-active')
       $(this).find('input').focus();
-      console.log($.support.transition.end);
     });
   },
   createBox.prototype.close =function () {
-
+    this.$element.hide(330, function () {
+      $(this).find('addform-header')
+        .removeClass('addform-header-active')
+        .find('.btn-close')
+        .removeClass('btn-close-active')
+      $('#topNav').removeClass('nav-hide')
+    })
   },
   createBox.prototype.bindEvent = function () {
     var self = this
     this.$btnCreate.on('click', function(e) {
       self.open()
+      return false
+    })
+    this.$btnClose.on('click', function () {
+      self.close()
       return false
     })
   }
@@ -39,9 +50,5 @@ define(function(require, exports, module) {
     btnCreate: $('#btnCreate')
   })
 
-  var addformEditor = CodeMirror($('#addformEditor')[0],{
-    lineWrapping: true
-  })
-  console.log(addformEditor)
 
 })
