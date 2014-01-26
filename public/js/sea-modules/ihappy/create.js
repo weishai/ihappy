@@ -26,11 +26,10 @@ define(function(require, exports, module) {
     });
   },
   createBox.prototype.close =function () {
+    this.$element.find('.btn-close').removeClass('btn-close-active')
     this.$element.hide(330, function () {
-      $(this).find('addform-header')
+      $(this).find('.addform-header')
         .removeClass('addform-header-active')
-        .find('.btn-close')
-        .removeClass('btn-close-active')
       $('#topNav').removeClass('nav-hide')
     })
   },

@@ -76,7 +76,7 @@ a{
   outline: none;
 }
 
-input,textarea{
+input,textarea,button{
   font-family: inherit;
 }
 
@@ -107,6 +107,9 @@ input:focus::-webkit-input-placeholder {
   text-align: center;
   font-size: 1em;
   cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  border: 0;
 }
 .btn:hover{
   background-color: #E79073;
@@ -224,7 +227,7 @@ input:focus::-webkit-input-placeholder {
   float: left;
   list-style: none;
   box-sizing: border-box;
-  padding: 0 16px;
+  padding: 0 2%;
 }
 .header .navlist > li a{
   display: inline-block;
@@ -264,7 +267,14 @@ input:focus::-webkit-input-placeholder {
 }
 
 .addform{}
-.addform .input-wrap{}
+.addform .input-wrap:after{
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 .addform .input-wrap .input-text{
   outline: none;
   margin: 0;
@@ -295,10 +305,6 @@ input:focus::-webkit-input-placeholder {
   display: table;
   color: #ddd;
   opacity: 0;
-  -webkit-transition:opacity .33s ease-out .8s;
-  -moz-transition:opacity .33s ease-out .8s;
-  -ms-transition:opacity .33s ease-out .8s;
-  transition:opacity .33s ease-out .8s;
 }
   .addform-header .btn-close > i{
     font-size: 1.5em;
@@ -306,9 +312,14 @@ input:focus::-webkit-input-placeholder {
     vertical-align: middle;
   }
   .addform-header .btn-close:hover{
-  color: #e1704b;}
+    color: #e1704b;
+  }
   .header .btn-close-active{
-    opacity: 1;
+    -webkit-transition:opacity .33s ease-out .8s;
+    -moz-transition:opacity .33s ease-out .8s;
+    -ms-transition:opacity .33s ease-out .8s;
+    transition:opacity .33s ease-out .8s;
+      opacity: 1;
   }
 
 .addform-header .input-wrap{
@@ -349,9 +360,15 @@ input:focus::-webkit-input-placeholder {
   height: 10%;
 }
 .addform .editor{
-  width: 680px;
+  width: 100%;
   padding: 0 12px;
   height: 600px;
+}
+.addform-action{
+  margin-top: 50px;
+}
+.addform-action .btn-submit{
+  float: right;
 }
 
 .header .create-box-active{
