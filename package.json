@@ -10,6 +10,7 @@
     "ejs": "*",
     "mongodb": "*",
     "connect-mongo": "*",
-    "jquery-file-upload-middleware": "*"
+    "jquery-file-upload-middleware": "*",
+    "mongoose": "*"
   }
 }
