@@ -25,7 +25,7 @@ define(function(require, exports, module) {
       $(this).find('input').focus();
     });
   },
-  createBox.prototype.close =function () {
+  createBox.prototype.close = function () {
     this.$element.find('.btn-close').removeClass('btn-close-active')
     this.$element.hide(330, function () {
       $(this).find('.addform-header')
@@ -43,11 +43,22 @@ define(function(require, exports, module) {
       self.close()
       return false
     })
+    this.$element.on('click', '.addform .btn-submit', function () {
+      var postData = $(this).closest('.addform').serialize()
+      $.post('/api/postblog', postData, function (d) {
+        if(d.result){
+          self.close()
+          $.get('/api/getblog', function (d) {
+            $('.wrap').html(d.data[0].title)
+          })
+        }
+      })
+      return false
+    })
   }
 
   var ihappyCreate = new createBox($('#createBox'), {
     btnCreate: $('#btnCreate')
   })
-
 
 })

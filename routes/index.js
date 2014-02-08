@@ -1,7 +1,8 @@
-
 /*
  * GET home page.
  */
+
+var BlogModel = require('../models/blog.js');
 
 module.exports = function(app) {
   app.get('/', function (req, res) {
@@ -10,6 +11,41 @@ module.exports = function(app) {
 
   app.get('/tool', function (req, res) {
     res.render('tool');
+  });
+
+  app.post('/api/postblog', function (req, res) {
+    var newBlogData = {
+      title: req.body.title,
+      content: req.body.content
+    }
+
+    BlogModel.create(newBlogData, function (err, blog) {
+      if(err){
+        res.json({result:false, msg: 'err'})
+      }
+      else{
+        res.json({
+          result: true,
+          data: blog,
+          msg: 'save success'
+        })
+      }
+    })
+  });
+
+  app.get('/api/getblog', function (req, res) {
+    BlogModel.find({}, function (err, blog) {
+      if(err){
+        res.json({result:false, msg: 'err'})
+      }
+      else{
+        res.json({
+          result: true,
+          data: blog,
+          msg: 'get success'
+        })
+      }
+    })
   });
 
   // app.post('/uploadfile', function (req, res) {
