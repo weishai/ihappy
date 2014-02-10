@@ -3,7 +3,10 @@ define(function(require, exports, module) {
   require('plugins/codemirror/codemirror.js')
   require('pluginsCss/codemirror/codemirror.css')
   require('pluginsCss/codemirror/writingTheme.css')
+
   var $ = require('jquery')
+    , Blog = require('ihappy/blog.js')
+    , myBlog = new Blog()
 
   var createBox = function (element, options) {
     this.$element = element
@@ -24,7 +27,7 @@ define(function(require, exports, module) {
         .addClass('btn-close-active')
       $(this).find('input').focus();
     });
-  },
+  }
   createBox.prototype.close = function () {
     this.$element.find('.btn-close').removeClass('btn-close-active')
     this.$element.hide(330, function () {
@@ -32,7 +35,7 @@ define(function(require, exports, module) {
         .removeClass('addform-header-active')
       $('#topNav').removeClass('nav-hide')
     })
-  },
+  }
   createBox.prototype.bindEvent = function () {
     var self = this
     this.$btnCreate.on('click', function(e) {
@@ -44,13 +47,13 @@ define(function(require, exports, module) {
       return false
     })
     this.$element.on('click', '.addform .btn-submit', function () {
-      var postData = $(this).closest('.addform').serialize()
+      var postData = null
+      self.$element.find('input[name=content]').val(self.addformEditor.doc.getValue('<br/>'))
+      postData = $(this).closest('.addform').serialize()
       $.post('/api/postblog', postData, function (d) {
         if(d.result){
           self.close()
-          $.get('/api/getblog', function (d) {
-            $('.wrap').html(d.data[0].title)
-          })
+          myBlog.showList()
         }
       })
       return false
@@ -60,5 +63,7 @@ define(function(require, exports, module) {
   var ihappyCreate = new createBox($('#createBox'), {
     btnCreate: $('#btnCreate')
   })
+
+  myBlog.showList()
 
 })

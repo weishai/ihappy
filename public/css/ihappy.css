@@ -264,6 +264,7 @@ input:focus::-webkit-input-placeholder {
   height: 100%;
   z-index: 1000;
   display: none;
+  background-color: #fff;
 }
 
 .addform{}
@@ -290,6 +291,7 @@ input:focus::-webkit-input-placeholder {
   -ms-transition:all .5s ease-out;
   transition:all .5s ease-out;
   position:relative;
+  border-bottom:1px solid #F2F2F2;
 }
   .header .addform-header-active{
     opacity: 1;
@@ -380,6 +382,26 @@ input:focus::-webkit-input-placeholder {
 .wrap{
   padding-top: 100px;
 }
+/* Article */
+#postsList{}
+#postsList .inner{
+  max-width: 960px;
+  margin: 0 auto;}
+
+.article{
+  padding: 2%;}
+.article .post{
+  margin-bottom: 2em;}
+.article .post header{
+  margin-bottom: 0.5em;}
+.article .post .title{
+  font-size: 1.6em;
+  font-weight: 300;}
+.article .post .title a{
+  color: #666;}
+.article .post .post-body{}
+.article .post .post-content{
+  color: #888;}
 
 /* footer */
 .footer{}
@@ -449,12 +471,3 @@ input:focus::-webkit-input-placeholder {
 
 /* App styles
 ----------------------------------------------------------------*/
-
-
-
-
-
-
-
-
-

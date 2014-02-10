@@ -45,6 +45,7 @@
                 </div>
                 <div class="tab-content">
                   <div id="addformEditor" class="editor"></div>
+                  <input type="hidden" name="content">
                 </div>
               </div>
               <div class="addform-action">
@@ -59,7 +60,28 @@
       </div>
     </div>
   </header>
-  <div class="wrap"></div>
+  <div class="wrap">
+    <section id="postsList">
+      <div class="inner">
+        <article class="article">
+          <script id="postTmp" type="text/html">
+          <? for (var i = 0; i < data.length; i++) { ?>
+              <div class="post excerpt">
+                <header>
+                  <h2 class="title">
+                    <a href=""><?=data[i].title?></a>
+                  </h2>
+                </header>
+                <div class="post-body">
+                  <div class="post-content"><?=data[i].content?></div>
+                </div>
+              </div>
+          <? } ?>
+          </script>
+        </article>
+      </div>
+    </section>
+  </div>
   <footer class="footer"></footer>
   <script src="js/sea-modules/seajs/sea.js"></script>
   <script src="js/ihappy.js"></script>
