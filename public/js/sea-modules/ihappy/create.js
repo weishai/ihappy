@@ -48,7 +48,8 @@ define(function(require, exports, module) {
     })
     this.$element.on('click', '.addform .btn-submit', function () {
       var postData = null
-      self.$element.find('input[name=content]').val(self.addformEditor.doc.getValue('<br/>'))
+
+      self.$element.find('input[name=content]').val(self.addformEditor.doc.getValue())
       postData = $(this).closest('.addform').serialize()
       $.post('/api/postblog', postData, function (d) {
         if(d.result){
