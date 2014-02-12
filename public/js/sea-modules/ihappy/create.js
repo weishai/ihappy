@@ -1,8 +1,10 @@
 define(function(require, exports, module) {
   console.log('create.js module start')
-  require('plugins/codemirror/codemirror.js')
-  require('pluginsCss/codemirror/codemirror.css')
-  require('pluginsCss/codemirror/writingTheme.css')
+  // require('plugins/codemirror/codemirror.js')
+  // require('pluginsCss/codemirror/codemirror.css')
+  // require('pluginsCss/codemirror/writingTheme.css')
+  require('plugins/pen/pen.js')
+  require('pluginsCss/pen/pen.css')
 
   var $ = require('jquery')
     , Blog = require('ihappy/blog.js')
@@ -13,8 +15,15 @@ define(function(require, exports, module) {
     this.$btnCreate = options.btnCreate
     this.$btnClose = options.btnClose || this.$element.find('.addform-header .btn-close')
     this.bindEvent()
-    this.addformEditor = CodeMirror($('#addformEditor')[0],{
-      lineWrapping: true
+    // this.addformEditor = CodeMirror($('#addformEditor')[0],{
+    //   lineWrapping: true
+    // })
+    this.addformEditor = new Pen({
+      editor: $('#addformEditor')[0],
+      list: [
+        'p', 'blockquote', 'h2', 'h3', 'insertorderedlist', 'insertunorderedlist','indent', 'outdent', 'bold', 'italic', 'pre', 'createlink'
+      ],
+      stay: false
     })
   }
   createBox.prototype.open = function () {
@@ -47,10 +56,13 @@ define(function(require, exports, module) {
       return false
     })
     this.$element.on('click', '.addform .btn-submit', function () {
-      var postData = null
+      var postData = {}
 
-      self.$element.find('input[name=content]').val(self.addformEditor.doc.getValue())
-      postData = $(this).closest('.addform').serialize()
+      // self.$element.find('input[name=content]').val(self.addformEditor.doc.getValue())
+      // postData = $(this).closest('.addform').serialize()
+      postData.title = self.$element.find('input[name=title]').val()
+      postData.content = self.$element.find('#addformEditor').html()
+
       $.post('/api/postblog', postData, function (d) {
         if(d.result){
           self.close()

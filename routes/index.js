@@ -13,6 +13,10 @@ module.exports = function(app) {
     res.render('tool');
   });
 
+  app.get('/blog/:name', function (req, res) {
+    res.render('tool');
+  });
+
   app.post('/api/postblog', function (req, res) {
     var newBlogData = {
       title: req.body.title,

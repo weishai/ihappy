@@ -399,6 +399,9 @@ input:focus::-webkit-input-placeholder {
   font-weight: 300;}
 .article .post .title a{
   color: #666;}
+  .article .post .title a:hover{
+    color: #E1704B;
+  }
 .article .post .post-body{}
 .article .post .post-content{
   color: #888;}
