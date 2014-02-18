@@ -64,20 +64,24 @@
     <section id="postsList">
       <div class="inner">
         <article class="article">
-          <script id="postTmp" type="text/html">
-          <? for (var i = 0; i < data.length; i++) { ?>
-              <div class="post excerpt">
-                <header>
-                  <h2 class="title">
-                    <a href="/blog/<?=data[i].title?>"><?=data[i].title?></a>
-                  </h2>
-                </header>
-                <div class="post-body">
-                  <div class="post-content"><?=#data[i].content?></div>
-                </div>
-              </div>
-          <? } ?>
-          </script>
+          <div class="post">
+            <%  if(data && data.title){ %>
+            <header>
+              <h2 class="title">
+                <a href=""><%= data.title %></a>
+              </h2>
+            </header>
+            <div class="post-body">
+              <div class="post-content"><%- data.content %></div>
+            </div>
+            <%  }else{ %>
+            <header>
+              <h2 class="title">
+                <a href="">404</a>
+              </h2>
+            </header>
+            <%  } %>
+          </div>
         </article>
       </div>
     </section>

@@ -77,6 +77,8 @@ define(function(require, exports, module) {
     btnCreate: $('#btnCreate')
   })
 
-  myBlog.showList()
+  if($('#postTmp').length){
+    myBlog.showList()
+  }
 
 })

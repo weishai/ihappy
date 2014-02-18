@@ -13,8 +13,14 @@ module.exports = function(app) {
     res.render('tool');
   });
 
-  app.get('/blog/:name', function (req, res) {
-    res.render('tool');
+  app.get('/blog/:title', function (req, res) {
+    BlogModel.find({'title': req.params.title}, function (err, blog) {
+      if(err){
+        blog = null
+      }
+      res.render('blog-article', {data: blog[0]})
+      // res.send(blog[0])
+    })
   });
 
   app.post('/api/postblog', function (req, res) {
