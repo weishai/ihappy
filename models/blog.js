@@ -1,7 +1,9 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
+  , CounterModel = require('../models/counter.js')
 mongoose.connect('mongodb://localhost/ihappy');
 
 var blogSchema = new mongoose.Schema({
+  post_id: Number,
   title: String,
   author: String,
   content: String,
@@ -13,6 +15,20 @@ var blogSchema = new mongoose.Schema({
   status: { type: String, default: 'publish' },
   meta: []
 });
+
+blogSchema.pre('save', function (next) {
+  var self = this
+  CounterModel.create({_id:'blog',count:1}, function () {
+    
+  })
+  CounterModel.increment('blog', function (err, res) {
+    if(err){
+      return next(err)
+    }
+    self.post_id = res.count
+    next()
+  })
+})
 
 var BlogModel = mongoose.model('Blog', blogSchema);
 

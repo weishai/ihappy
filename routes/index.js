@@ -19,17 +19,17 @@ module.exports = function(app) {
         blog = null
       }
       res.render('blog-article', {data: blog[0]})
-      // res.send(blog[0])
     })
   });
 
   app.post('/api/postblog', function (req, res) {
-    var newBlogData = {
+    console.log('postblog start');
+    var newBlog = new BlogModel({
       title: req.body.title,
       content: req.body.content
-    }
+    })
 
-    BlogModel.create(newBlogData, function (err, blog) {
+    newBlog.save(function (err, blog) {
       if(err){
         res.json({result:false, msg: 'err'})
       }

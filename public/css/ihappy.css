@@ -114,6 +114,22 @@ input:focus::-webkit-input-placeholder {
 .btn:hover{
   background-color: #E79073;
 }
+.btn-dark{
+  background-color: #848484;}
+  .btn-dark:hover{
+    background-color: #a8a8a8;
+  }
+.btn-mini{
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 3px;}
+
+.btn-group{
+  text-align: center;
+}
+.btn-group .btn{
+  margin: 0 6px;
+}
 
 /* iTab */
 .tab-box{}
@@ -143,6 +159,19 @@ input:focus::-webkit-input-placeholder {
   .tab-box .tab-content > .item-active{
     display: block;
   }
+
+/* popover */
+.popover{
+  position: absolute;
+  z-index: 1010;
+  margin-top: 6px;
+}
+.popover .popover-content{
+  padding: 8px 0;
+  border-radius: 4px;
+  width: 128px;
+  border: 1px solid #DBDBDB;
+}
 
 /* App styles
 ----------------------------------------------------------------*/
@@ -405,6 +434,24 @@ input:focus::-webkit-input-placeholder {
 .article .post .post-body{}
 .article .post .post-content{
   color: #888;}
+.article .post .post-control{
+  position: relative;
+  margin-top: 2%;}
+.post-control .toolbar{
+  float: right;}
+.post-control .toolbar .ibtn{
+  display: inline-block;
+  color: #acacac;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+.post-control .toolbar .ibtn i{
+  font-size: 16px;}
+.post-control .toolbar .ibtn:hover, .post-control .toolbar .ibtn-active{
+  color: #E1704B;
+}
+
 
 /* footer */
 .footer{}

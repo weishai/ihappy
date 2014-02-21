@@ -64,24 +64,29 @@
     <section id="postsList">
       <div class="inner">
         <article class="article">
+          <%  if(data && data.title){ %>
           <div class="post">
-            <%  if(data && data.title){ %>
             <header>
-              <h2 class="title">
-                <a href=""><%= data.title %></a>
-              </h2>
+              <h2 class="title"><%= data.title %></h2>
             </header>
             <div class="post-body">
               <div class="post-content"><%- data.content %></div>
             </div>
-            <%  }else{ %>
+            <div class="post-control clearfix">
+              <div class="toolbar">
+                <span class="ibtn ibtn-remove"><i class="icon-remove"></i></span>
+              </div>
+            </div>
+          </div>
+          <%  }else{ %>
+          <div class="post">
             <header>
               <h2 class="title">
-                <a href="">404</a>
+                <a href="">文章不存在！</a>
               </h2>
             </header>
-            <%  } %>
           </div>
+          <% } %>
         </article>
       </div>
     </section>
