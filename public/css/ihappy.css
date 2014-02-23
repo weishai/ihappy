@@ -151,6 +151,7 @@ input:focus::-webkit-input-placeholder {
 
   }
 .tab-box .tab-content{
+  overflow-y: scroll;
 
 }
 .tab-box .tab-content .tab-item{
@@ -163,8 +164,8 @@ input:focus::-webkit-input-placeholder {
 /* popover */
 .popover{
   position: absolute;
-  z-index: 1010;
   margin-top: 6px;
+  z-index: 1010;
 }
 .popover .popover-content{
   padding: 8px 0;
@@ -182,6 +183,7 @@ input:focus::-webkit-input-placeholder {
   width: 100%;
   background-color: #fff;
   border-bottom: 1px solid #F2F2F2;
+  z-index: 1;
 }
 .header .header-inner{
 }
@@ -391,9 +393,8 @@ input:focus::-webkit-input-placeholder {
   height: 10%;
 }
 .addform .editor{
-  width: 100%;
   padding: 0 12px;
-  height: 600px;
+  height: 400px;
 }
 .addform-action{
   margin-top: 50px;

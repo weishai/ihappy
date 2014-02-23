@@ -17,3 +17,5 @@ counterSchema.statics.increment = function (modelName, cb) {
 var CounterModel = mongoose.model('Counter', counterSchema);
 
 module.exports = CounterModel;
+
+require('../models/counter-init.js')

@@ -44,7 +44,7 @@ module.exports = function(app) {
   });
 
   app.get('/api/getblog', function (req, res) {
-    BlogModel.find({}, function (err, blog) {
+    BlogModel.find({},null,{sort:{post_id: -1}}, function (err, blog) {
       if(err){
         res.json({result:false, msg: 'err'})
       }
