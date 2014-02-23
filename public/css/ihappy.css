@@ -151,7 +151,7 @@ input:focus::-webkit-input-placeholder {
 
   }
 .tab-box .tab-content{
-  overflow-y: scroll;
+  overflow-y: auto;;;
 
 }
 .tab-box .tab-content .tab-item{
