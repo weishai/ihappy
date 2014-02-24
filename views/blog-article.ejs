@@ -92,6 +92,20 @@
     </section>
   </div>
   <footer class="footer"></footer>
+  <script id="postTmp" type="text/html">
+    <? for (var i = 0; i < data.length; i++) { ?>
+        <div id="post-<?= data[i].post_id?>" class="post excerpt">
+          <header>
+            <h2 class="title">
+              <a href="/blog/<?=data[i].title?>"><?=data[i].title?></a>
+            </h2>
+          </header>
+          <div class="post-body">
+            <div class="post-content"><?=#data[i].content?></div>
+          </div>
+        </div>
+    <? } ?>
+    </script>
   <script src="../js/sea-modules/seajs/sea.js"></script>
   <script src="../js/ihappy.js"></script>
 </body>

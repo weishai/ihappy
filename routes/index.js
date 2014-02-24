@@ -58,6 +58,20 @@ module.exports = function(app) {
     })
   });
 
+  app.post('/api/deleteblog', function (req, res) {
+    BlogModel.findOneAndRemove({post_id: req.body.postId}, function (err) {
+      if(err){
+        res.json({result:false, msg: 'err'})
+      }
+      else{
+        res.json({
+          result: true,
+          msg: 'delete success'
+        })
+      }
+    })
+  });
+
   // app.post('/uploadfile', function (req, res) {
   //   var upload = require('jquery-file-upload-middleware')
   //     , fs = require('fs')

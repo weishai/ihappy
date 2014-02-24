@@ -44,6 +44,9 @@ define(function(require, exports, module) {
         .removeClass('addform-header-active')
       $('#topNav').removeClass('nav-hide')
     })
+    this.$element.find('.addform-header input[name=title]').val('')
+    this.$element.find('.addform-body .editor').html('')
+    this.addformEditor.rebuild()
   }
   createBox.prototype.bindEvent = function () {
     var self = this
@@ -77,7 +80,8 @@ define(function(require, exports, module) {
     btnCreate: $('#btnCreate')
   })
 
-  if($('#postTmp').length){
+console.log($('#postTmp').data('initpage'));
+  if($('#postTmp').data('initpage')){
     myBlog.showList()
   }
 

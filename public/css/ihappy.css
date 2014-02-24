@@ -110,6 +110,7 @@ input:focus::-webkit-input-placeholder {
   display: inline-block;
   margin: 0;
   border: 0;
+  outline: none;
 }
 .btn:hover{
   background-color: #E79073;
@@ -172,6 +173,8 @@ input:focus::-webkit-input-placeholder {
   border-radius: 4px;
   width: 128px;
   border: 1px solid #DBDBDB;
+  position: relative;
+  left: -40%;
 }
 
 /* App styles

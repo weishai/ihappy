@@ -8,14 +8,13 @@ define(function(require, exports, module) {
   template.closeTag = "?>";
 
   var Blog = function () {
-    this.postBlogUri = '/api/postblog'
-    this.getBlogUri = '/api/getblog'
+    this.postBlogUri = location.origin + '/api/postblog'
+    this.getBlogUri = location.origin + '/api/getblog'
+    this.deleteBlogUri = location.origin + '/api/deleteblog'
     this.bindEvent()
   }
   Blog.prototype.postBlog = function (cb) {}
-  Blog.prototype.getBlog = function (cb) {
-
-  }
+  Blog.prototype.getBlog = function (cb) {}
   Blog.prototype.showList = function () {
     var self = this
       , postListHtml = null
@@ -35,6 +34,7 @@ define(function(require, exports, module) {
         // }
         postListHtml = template.render('postTmp', d)
         $('#postsList .article').html(postListHtml)
+        window.history.pushState({},0,location.origin)
       }
     })
   }
@@ -45,6 +45,7 @@ define(function(require, exports, module) {
     return elem.innerHTML;
   }
   Blog.prototype.bindEvent = function () {
+    var self = this
     console.log($('#postsList .post-control .ibtn-remove'))
     $('#postsList .post-control .ibtn-remove').popover({
       placement:'bottom',
@@ -55,10 +56,22 @@ define(function(require, exports, module) {
     $('#postsList .post-control')
       .on('click', '.ibtn-remove', function(e) {
         $(this).addClass('ibtn-active').popover('show')
-        e.preventDefault();
+        e.preventDefault()
       })
-      .on('click', '.popover [data-action="remove-post"]', function () {
-        var postId = $(this).closest('post').data('postid')
+      .on('click', '.popover [data-action="remove-post"]', function (e) {
+        var $curPost = $(this).closest('.post')
+          , postId = $curPost.data('postid') || $curPost.attr('id').replace(/^post-/, '')
+
+        console.log(postId)
+        $.post(self.deleteBlogUri, {postId: postId}, function (d) {
+          if(d.result){
+            self.showList()
+          }
+          else{
+            alert(postId+' delete bad: '+d.msg)
+          }
+        })
+        e.preventDefault()
       })
   }
 

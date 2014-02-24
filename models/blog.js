@@ -18,9 +18,6 @@ var blogSchema = new mongoose.Schema({
 
 blogSchema.pre('save', function (next) {
   var self = this
-  CounterModel.create({_id:'blog',count:1}, function () {
-    
-  })
   CounterModel.increment('blog', function (err, res) {
     if(err){
       return next(err)
