@@ -6,6 +6,7 @@ var blogSchema = new mongoose.Schema({
   post_id: Number,
   title: String,
   author: String,
+  excerpt: String,
   content: String,
   comments: [{
     content: String,

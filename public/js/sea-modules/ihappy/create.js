@@ -65,6 +65,7 @@ define(function(require, exports, module) {
       // postData = $(this).closest('.addform').serialize()
       postData.title = self.$element.find('input[name=title]').val()
       postData.content = self.$element.find('#addformEditor').html()
+      postData.excerpt = myBlog.getExcerpt(postData.content)
 
       $.post('/api/postblog', postData, function (d) {
         if(d.result){

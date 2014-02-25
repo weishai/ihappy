@@ -152,8 +152,7 @@ input:focus::-webkit-input-placeholder {
 
   }
 .tab-box .tab-content{
-  overflow-y: auto;;;
-
+  overflow-y: auto;
 }
 .tab-box .tab-content .tab-item{
   display: none;
@@ -422,27 +421,44 @@ input:focus::-webkit-input-placeholder {
   margin: 0 auto;}
 
 .article{
-  padding: 2%;}
+  padding: 2%;
+}
 .article .post{
-  margin-bottom: 2em;}
+  margin-bottom: 2em;
+}
 .article .post header{
-  margin-bottom: 0.5em;}
+  margin-bottom: 0.5em;
+}
 .article .post .title{
   font-size: 1.6em;
-  font-weight: 300;}
+  font-weight: 300;
+}
 .article .post .title a{
-  color: #666;}
+  color: #666;
+}
   .article .post .title a:hover{
-    color: #E1704B;
-  }
-.article .post .post-body{}
+  color: #E1704B;
+}
+.article .post .post-meta{
+  margin: 10px 0;
+  color: #aaa;}
+.article .post-meta .meta{
+  font-size: 14px;}
+.article .post-meta .meta-date i{
+  margin-right: 4px;}
+
+.article .post .post-body{
+}
 .article .post .post-content{
-  color: #888;}
+  color: #888;
+}
 .article .post .post-control{
   position: relative;
-  margin-top: 2%;}
+  margin-top: 2%;
+}
 .post-control .toolbar{
-  float: right;}
+  float: right;
+}
 .post-control .toolbar .ibtn{
   display: inline-block;
   color: #acacac;
@@ -451,7 +467,8 @@ input:focus::-webkit-input-placeholder {
   line-height: 1;
 }
 .post-control .toolbar .ibtn i{
-  font-size: 16px;}
+  font-size: 16px;
+}
 .post-control .toolbar .ibtn:hover, .post-control .toolbar .ibtn-active{
   color: #E1704B;
 }

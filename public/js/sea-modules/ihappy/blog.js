@@ -6,6 +6,14 @@ define(function(require, exports, module) {
 
   template.openTag = "<?";
   template.closeTag = "?>";
+  template.helper('blogdate', function (d) {
+    var curDate = {}
+    curDate.base = new Date(d)
+    curDate.yy = curDate.base.getFullYear()
+    curDate.mm = curDate.base.getMonth() + 1
+    curDate.dd = curDate.base.getDate()
+    return curDate.yy+'-'+curDate.mm+'-'+curDate.dd
+  })
 
   var Blog = function () {
     this.postBlogUri = location.origin + '/api/postblog'
@@ -44,12 +52,37 @@ define(function(require, exports, module) {
     elem.appendChild(txt)
     return elem.innerHTML;
   }
+  Blog.prototype.getExcerpt = function (str) {
+    var contentAry = str.contents()
+      , p1 = $(contentAry[0])
+      , p2 = null
+
+    if( p1.text().length > 260){
+      if(p1.text().length < 520){
+        return p1
+      }
+      else{
+        return '<p>' + p1.text().substr(0, 516) + '...</p>'
+      }
+    }
+    if(contentAry.length < 2){
+      return p1
+    }
+    else{
+      p2 = $(contentAry[1])
+      if(p2.text().length > 260){
+        p2 = '<p>' + p2.text().substr(0, 516) + '...</p>'
+      }
+      return contentAry[0].outerHTML + p2
+    }
+  }
   Blog.prototype.bindEvent = function () {
     var self = this
-    console.log($('#postsList .post-control .ibtn-remove'))
-    $('#postsList .post-control .ibtn-remove').popover({
+      , $ibtnRemove = $('#postsList .post-control .ibtn-remove')
+
+    $ibtnRemove.popover({
       placement:'bottom',
-      content:'<div class="btn-group"><button class="btn btn-mini" data-action="remove-post">确定</button><button class="btn btn-mini btn-dark">取消</button></div>',
+      content:'<div class="btn-group"><button class="btn btn-mini" data-action="remove-post">确定</button><button class="btn btn-mini btn-dark" data-action="remove-cancel">取消</button></div>',
       html:true,
       trigger: 'manual'
     })
@@ -71,6 +104,10 @@ define(function(require, exports, module) {
             alert(postId+' delete bad: '+d.msg)
           }
         })
+        e.preventDefault()
+      })
+      .on('click', '.popover [data-action="remove-cancel"]', function (e) {
+        $ibtnRemove.removeClass('ibtn-active').popover('hide')
         e.preventDefault()
       })
   }
