@@ -26,7 +26,8 @@ module.exports = function(app) {
     console.log('postblog start');
     var newBlog = new BlogModel({
       title: req.body.title,
-      content: req.body.content
+      content: req.body.content,
+      excerpt: req.body.excerpt
     })
 
     newBlog.save(function (err, blog) {

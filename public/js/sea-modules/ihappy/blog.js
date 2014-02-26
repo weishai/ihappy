@@ -53,28 +53,36 @@ define(function(require, exports, module) {
     return elem.innerHTML;
   }
   Blog.prototype.getExcerpt = function (str) {
-    var contentAry = str.contents()
-      , p1 = $(contentAry[0])
-      , p2 = null
+    try{
+    var strAry = $('<div>'+str+'</div>').contents()
+      , $p1 = strAry[0].nodeType == 1 ? $(strAry[0]) : $('<p>'+strAry[0].nodeValue+'</p>')
+      , $p2 = null
 
-    if( p1.text().length > 260){
-      if(p1.text().length < 520){
-        return p1
+    console.log($(str).wrap('<div></div>').eq(0));
+    console.log('p1.content:'+ $p1.text());
+    console.log('p1.length: '+$p1.text().length);
+    if( $p1.text().length > 260){
+      if($p1.text().length < 520){
+        return $p1
       }
       else{
-        return '<p>' + p1.text().substr(0, 516) + '...</p>'
+        return '<p>' + $p1.text().substr(0, 516) + '...</p>'
       }
     }
-    if(contentAry.length < 2){
-      return p1
+    if($(str).length < 2){
+      return $p1
     }
     else{
-      p2 = $(contentAry[1])
-      if(p2.text().length > 260){
-        p2 = '<p>' + p2.text().substr(0, 516) + '...</p>'
+      $p2 = strAry[1].nodeType == 1 ? $(strAry[1]) : $('<p>'+strAry[1]+'</p>')
+      console.log('p2.content:'+ $p2.text());
+      console.log('p2.length: '+$p2.text().length);
+      if($p2.text().length > 260){
+        $p2 = '<p>' + $p2.text().substr(0, 516) + '...</p>'
+        $p2 = $($p2)
       }
-      return contentAry[0].outerHTML + p2
+      return $p1[0].outerHTML + $p2[0].outerHTML
     }
+  }catch(err){alert(err)}
   }
   Blog.prototype.bindEvent = function () {
     var self = this
