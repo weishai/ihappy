@@ -451,6 +451,8 @@ input:focus::-webkit-input-placeholder {
 }
 .article .post .post-content{
   color: #888;
+  word-wrap: break-word;
+  word-break: normal;
 }
 .article .post .post-control{
   position: relative;

@@ -99,13 +99,16 @@
             <h2 class="title">
               <a href="/blog/<?=data[i].title?>"><?=data[i].title?></a>
             </h2>
+            <div class="post-meta">
+              <div class="meta meta-date"><i class="icon-clock"></i><?=blogdate(data[i].date) ?></div>
+            </div>
           </header>
           <div class="post-body">
-            <div class="post-content"><?=#data[i].content?></div>
+            <div class="post-content"><?=#data[i].excerpt?></div>
           </div>
         </div>
     <? } ?>
-    </script>
+  </script>
   <script src="../js/sea-modules/seajs/sea.js"></script>
   <script src="../js/ihappy.js"></script>
 </body>

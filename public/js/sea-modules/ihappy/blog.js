@@ -58,9 +58,9 @@ define(function(require, exports, module) {
       , $p1 = strAry[0].nodeType == 1 ? $(strAry[0]) : $('<p>'+strAry[0].nodeValue+'</p>')
       , $p2 = null
 
-    console.log($(str).wrap('<div></div>').eq(0));
-    console.log('p1.content:'+ $p1.text());
-    console.log('p1.length: '+$p1.text().length);
+    // console.log($(str).wrap('<div></div>').eq(0));
+    // console.log('p1.content:'+ $p1.text());
+    // console.log('p1.length: '+$p1.text().length);
     if( $p1.text().length > 260){
       if($p1.text().length < 520){
         return $p1
@@ -69,8 +69,8 @@ define(function(require, exports, module) {
         return '<p>' + $p1.text().substr(0, 516) + '...</p>'
       }
     }
-    if($(str).length < 2){
-      return $p1
+    if(strAry.length < 2){
+      return $p1[0].outerHTML
     }
     else{
       $p2 = strAry[1].nodeType == 1 ? $(strAry[1]) : $('<p>'+strAry[1]+'</p>')
@@ -82,7 +82,7 @@ define(function(require, exports, module) {
       }
       return $p1[0].outerHTML + $p2[0].outerHTML
     }
-  }catch(err){alert(err)}
+    }catch(err){alert(err)}
   }
   Blog.prototype.bindEvent = function () {
     var self = this
