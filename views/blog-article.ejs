@@ -64,10 +64,21 @@
     <section id="postsList">
       <div class="inner">
         <article class="article">
-          <%  if(data && data.title){ %>
+          <%
+          var curDate = {}
+            , outputDate = null
+          curDate.base = new Date(data.date)
+          curDate.yy = curDate.base.getFullYear()
+          curDate.mm = curDate.base.getMonth() + 1
+          curDate.dd = curDate.base.getDate()
+          outputDate = curDate.yy+'-'+curDate.mm+'-'+curDate.dd
+          if(data && data.title){ %>
           <div id="post-<%= data.post_id%>" class="post">
             <header>
               <h2 class="title"><%= data.title %></h2>
+              <div class="post-meta">
+                <div class="meta meta-date"><i class="icon-clock"></i><%= outputDate %></div>
+              </div>
             </header>
             <div class="post-body">
               <div class="post-content"><%- data.content %></div>
