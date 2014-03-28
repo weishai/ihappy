@@ -30,6 +30,7 @@ var xssOptions = {
     tt:     ['style'],
     tbody:  ['style'],
     thead:  ['style'],
+    tt:  ['style'],
     ul:     ['style'],
     li:     ['style'],
     ol:     ['style'],
