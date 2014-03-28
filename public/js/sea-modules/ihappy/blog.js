@@ -103,7 +103,6 @@ define(function(require, exports, module) {
         var $curPost = $(this).closest('.post')
           , postId = $curPost.data('postid') || $curPost.attr('id').replace(/^post-/, '')
 
-        console.log(postId)
         $.post(self.deleteBlogUri, {postId: postId}, function (d) {
           if(d.result){
             self.showList()

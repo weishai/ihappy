@@ -27,6 +27,7 @@ var xssOptions = {
     tr:     ['rowspan', 'style'],
     td:     ['width', 'colspan', 'style'],
     th:     ['width', 'colspan', 'style'],
+    tt:     ['style'],
     tbody:  ['style'],
     thead:  ['style'],
     ul:     ['style'],
