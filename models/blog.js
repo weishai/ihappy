@@ -20,6 +20,7 @@ var xssOptions = {
     p:      ['style'],
     pre:    ['style'],
     code:   ['style'],
+    colgroup:  ['style'],
     a:      ['target', 'href', 'title', 'style'],
     img:    ['src', 'alt', 'title', 'width', 'height', 'style'],
     div:    ['style'],

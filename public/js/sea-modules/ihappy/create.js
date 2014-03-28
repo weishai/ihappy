@@ -50,6 +50,7 @@ define(function(require, exports, module) {
   }
   createBox.prototype.bindEvent = function () {
     var self = this
+
     this.$btnCreate.on('click', function(e) {
       self.open()
       return false
@@ -74,6 +75,26 @@ define(function(require, exports, module) {
         }
       })
       return false
+    })
+    this.$element.find('#btnNavCode').on('click', function (e) {
+      if($(this).hasClass('nav-btn-active')){
+        $(this).removeClass('nav-btn-active')
+        $(this).closest('.tab-nav').find('.codebar').removeClass('codebar-active')
+        $('#btnAnything').click()
+      }
+      else{
+        $(this).addClass('nav-btn-active')
+        $(this).closest('.tab-nav').find('.codebar').addClass('codebar-active')
+          .find('>li >a').eq(0).click()
+      }
+      e.preventDefault()
+    })
+    this.$element.on('click', '.codebar > li > a', function () {
+      $('#btnAnything').removeClass('nav-btn-active')
+    })
+    this.$element.find('#btnAnything').on('click', function () {
+      $(this).addClass('nav-btn-active')
+      self.$element.find('.codebar > li.active').removeClass('active')
     })
   }
 

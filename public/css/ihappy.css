@@ -154,10 +154,12 @@ input:focus::-webkit-input-placeholder {
 .tab-box .tab-content{
   overflow-y: auto;
 }
-.tab-box .tab-content .tab-item{
+.tab-box .tab-content .tab-item,
+.tab-content > .tab-pane{
   display: none;
 }
-  .tab-box .tab-content > .item-active{
+  .tab-box .tab-content > .item-active,
+  .tab-content > .active{
     display: block;
   }
 
@@ -385,9 +387,39 @@ input:focus::-webkit-input-placeholder {
 .addform .tab-nav .nav-btn{
   padding: 8px 12px;
   font-size: 18px;
-  color: #cdcdcd;}
+  color: #cdcdcd;
+  cursor: pointer;;
+}
+.addform .tab-nav .nav-btn:hover,
+.addform .tab-nav .nav-btn-active{
+  color: #e1704b;
+}
 .addform .tab-nav .nav-btn > i{
   margin-right: 4px;}
+.addform .codebar{
+  display: none;
+  font-size: 0;
+}
+.addform .codebar > li{
+  display: inline-block;
+  margin-right: 8px;;}
+.addform .codebar > li a{
+  border: 1px solid #c8c8c8;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #aaa;
+  display: block;
+  font-size: 16px;
+  text-align: center;}
+.addform .codebar > .active a,
+.addform .codebar > li a:hover{
+  color: #e1704b;
+  border: 1px solid #e1704b;
+}
+.addform .codebar-active{
+  display: inline-block;
+}
+
 .addform-footer{
   width: 80%;
   max-width: 960px;

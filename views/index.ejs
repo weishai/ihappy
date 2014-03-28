@@ -50,11 +50,29 @@
             <div class="addform-body-inner">
               <div class="tab-box">
                 <div class="tab-nav">
-                  <div class="nav-btn"><i class="icon-file"></i>Anything</div>
+                  <div id="btnAnything" class="nav-btn nav-btn-active" data-toggle="tab" data-target="#addformEditor">
+                    <i class="icon-file"></i>Anything
+                  </div>
+                  <div id="btnNavCode" class="nav-btn">
+                    <i class="icon-code"></i>Code
+                  </div>
+                  <ul class="codebar">
+                    <li>
+                      <a href="" data-toggle="tab" data-target="#htmlEditor">html</a>
+                    </li>
+                    <li>
+                      <a href="" data-toggle="tab" data-target="#cssEditor">css</a>
+                    </li>
+                    <li>
+                      <a href="" data-toggle="tab" data-target="#jsEditor">javascript</a>
+                    </li>
+                  </ul>
                 </div>
                 <div class="tab-content">
-                  <div id="addformEditor" class="editor"></div>
-                  <input type="hidden" name="content">
+                  <div id="addformEditor" class="tab-pane editor active"></div>
+                  <div id="htmlEditor" class="tab-pane editor">html</div>
+                  <div id="cssEditor" class="tab-pane editor">css</div>
+                  <div id="jsEditor" class="tab-pane editor">js</div>
                 </div>
               </div>
               <div class="addform-action">
