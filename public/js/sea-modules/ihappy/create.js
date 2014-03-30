@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
   console.log('create.js module start')
-  // require('plugins/codemirror/codemirror.js')
-  // require('pluginsCss/codemirror/codemirror.css')
+  require('plugins/codemirror/codemirror.js')
+  require('pluginsCss/codemirror/codemirror.css')
   // require('pluginsCss/codemirror/writingTheme.css')
   require('plugins/pen/pen.js')
   require('pluginsCss/pen/pen.css')
@@ -15,9 +15,14 @@ define(function(require, exports, module) {
     this.$btnCreate = options.btnCreate
     this.$btnClose = options.btnClose || this.$element.find('.addform-header .btn-close')
     this.bindEvent()
-    // this.addformEditor = CodeMirror($('#addformEditor')[0],{
-    //   lineWrapping: true
-    // })
+    this.htmlEditor = CodeMirror($('#htmlEditor')[0],{
+      mode: 'text/html',
+      lineNumbers: true
+    })
+    this.cssEditor = CodeMirror($('#cssEditor')[0],{
+      mode: 'css',
+      lineNumbers: true
+    })
     this.addformEditor = new Pen({
       editor: $('#addformEditor')[0],
       list: [
