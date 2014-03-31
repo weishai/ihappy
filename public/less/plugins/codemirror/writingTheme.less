@@ -1,24 +1,30 @@
-.CodeMirror {
-  /* Set height, width, borders, and global font properties here */
-  font-family: "Helvetica Neue", "Microsoft Yahei", "微软雅黑", Tahoma, Arial, sans-serif;
-  font-size: 16px;
-  cursor: text;
-  color: #666;
-}
+@backgroundColor: #efefef;
+@fontColor: #666;
+@fontSize: 16px;
 
-.CodeMirror pre {less
-  line-height: 24px;
+/* Set height, width, borders, and global font properties here */
+.CodeMirror {
+  font-family: "Helvetica Neue", "Microsoft Yahei", "微软雅黑", Tahoma, Arial, sans-serif;
+  font-size: @fontSize;
+  cursor: text;
+  color: @fontColor;
+
+  pre {
+    line-height: 24px;
+  }
 }
 
 .CodeMirror-selected {
-  background: #efefef;
+  background: @backgroundColor;
 }
-.CodeMirror-focused .CodeMirror-selected {
-  background: #efefef;
+.CodeMirror-focused {
+  .CodeMirror-selected {
+    background: @backgroundColor;    
+  }
 }
 
+/* Set Scrollbar */
 .CodeMirror-vscrollbar::-webkit-scrollbar {
-  /* Set Scrollbar */
   width: 6px;
 }
 .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
