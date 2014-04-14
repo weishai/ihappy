@@ -2,6 +2,8 @@ define(function(require, exports, module) {
   console.log('create.js module start')
   require('plugins/codemirror/codemirror.js')
   require('pluginsCss/codemirror/codemirror.css')
+  require('plugins/codemirror/mode/xml.js')
+  require('plugins/codemirror/mode/htmlmixed.js')
   // require('pluginsCss/codemirror/writingTheme.css')
   require('plugins/pen/pen.js')
   require('pluginsCss/pen/pen.css')
@@ -98,7 +100,8 @@ define(function(require, exports, module) {
       if(!self[targetEditor]){
         console.log(targetEditor)
         self[targetEditor] = CodeMirror($('#'+targetEditor)[0],{
-          lineNumbers: true
+          lineNumbers: true,
+          mode: 'text/html'
         })
       }
     })
