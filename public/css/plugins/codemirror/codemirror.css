@@ -30,7 +30,9 @@
   background-color: #f7f7f7;
   white-space: nowrap;
 }
-.CodeMirror-linenumbers {}
+.CodeMirror-linenumbers {
+  min-width: 30px;
+}
 .CodeMirror-linenumber {
   padding: 0 3px 0 5px;
   min-width: 20px;

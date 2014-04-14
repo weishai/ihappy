@@ -15,14 +15,6 @@ define(function(require, exports, module) {
     this.$btnCreate = options.btnCreate
     this.$btnClose = options.btnClose || this.$element.find('.addform-header .btn-close')
     this.bindEvent()
-    this.htmlEditor = CodeMirror($('#htmlEditor')[0],{
-      mode: 'text/html',
-      lineNumbers: true
-    })
-    this.cssEditor = CodeMirror($('#cssEditor')[0],{
-      mode: 'css',
-      lineNumbers: true
-    })
     this.addformEditor = new Pen({
       editor: $('#addformEditor')[0],
       list: [
@@ -100,6 +92,15 @@ define(function(require, exports, module) {
     this.$element.find('#btnAnything').on('click', function () {
       $(this).addClass('nav-btn-active')
       self.$element.find('.codebar > li.active').removeClass('active')
+    })
+    self.$element.find('.codebar [data-toggle="tab"]').on('shown.bs.tab', function () {
+      var targetEditor = $(this).data('target').replace(/^#/, '')
+      if(!self[targetEditor]){
+        console.log(targetEditor)
+        self[targetEditor] = CodeMirror($('#'+targetEditor)[0],{
+          lineNumbers: true
+        })
+      }
     })
   }
 
