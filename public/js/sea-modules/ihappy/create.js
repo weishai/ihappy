@@ -4,6 +4,8 @@ define(function(require, exports, module) {
   require('pluginsCss/codemirror/codemirror.css')
   require('plugins/codemirror/mode/xml.js')
   require('plugins/codemirror/mode/htmlmixed.js')
+  require('plugins/codemirror/mode/css.js')
+  require('plugins/codemirror/mode/javascript.js')
   // require('pluginsCss/codemirror/writingTheme.css')
   require('plugins/pen/pen.js')
   require('pluginsCss/pen/pen.css')
@@ -99,9 +101,10 @@ define(function(require, exports, module) {
       var targetEditor = $(this).data('target').replace(/^#/, '')
       if(!self[targetEditor]){
         console.log(targetEditor)
+        var targetCodemode = $(this).data('codemode')
         self[targetEditor] = CodeMirror($('#'+targetEditor)[0],{
           lineNumbers: true,
-          mode: 'text/html'
+          mode: targetCodemode
         })
       }
     })
